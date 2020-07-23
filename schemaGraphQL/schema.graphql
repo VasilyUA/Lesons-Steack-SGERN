@@ -1,0 +1,10 @@
+type Query {
+  getAllBooks: [Book]!
+  getBook(id: ID!): Book!
+  getAllTodus: [Todus]!
+  getTodu(id: ID!): Todus!
+}
+type Mutation {
+  addBook(book: BookInput!): Book!
+  addTodu(todu: ToduInput!): Todus!
+}

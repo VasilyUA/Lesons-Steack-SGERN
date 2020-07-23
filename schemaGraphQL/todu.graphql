@@ -1,0 +1,9 @@
+# Задачі
+type Todus {
+  id: ID!
+  title: String!
+}
+input ToduInput {
+  title: String!
+}
+# Задачі

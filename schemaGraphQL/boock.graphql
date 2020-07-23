@@ -1,0 +1,11 @@
+# Книжки
+type Book {
+  id: ID!
+  title: String!
+  description: String!
+}
+input BookInput {
+  title: String!
+  description: String!
+}
+# Книжки
