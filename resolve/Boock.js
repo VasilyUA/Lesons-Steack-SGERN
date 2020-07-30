@@ -35,21 +35,32 @@ const updateBoock = async (params) => {
   const { id, title, description } = params.book;
   if (!id || !title || !description) return "Всі поля мають бути заповниними";
   try {
-    const UpdateBoock = await boock.update(params.book, {
+    await boock.update(params.book, {
       where: {
         id: id,
       },
       returning: true,
       plain: true,
     });
-    return UpdateBoock;
+    return await boock.findByPk(params.book.id);
   } catch (error) {
     console.error(error);
   }
 };
+
+const removeBoock = async (params) => {
+  try {
+    await boock.destroy({ where: { id: params.id } });
+    return "Книга удалена";
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 module.exports = {
   getAllBooks,
   getBook,
   addBook,
   updateBoock,
+  removeBoock,
 };
