@@ -8,4 +8,9 @@ input BookInput {
   title: String!
   description: String!
 }
+input UpdateBookInput {
+  id: ID!
+  title: String!
+  description: String!
+}
 # Книжки
