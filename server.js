@@ -2,6 +2,7 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 //import config env
 const config = require("./config");
 //import schemas grphql
@@ -10,18 +11,20 @@ const schema = buildSchema(schemas);
 //import resloves grphql
 const root = require("./resolve/index");
 // import database seqelize
-const db = require("./database/Sequelize") 
+const db = require("./database/Sequelize");
 
 //body server
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use("/", graphqlHTTP({ schema, graphiql: true, rootValue: root }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/graphql", graphqlHTTP({ schema, graphiql: true, rootValue: root }));
 //Test Db conection
 db.authenticate()
   .then(() => {
     console.log("Connected...");
-app.listen(config.PORT, () => { 
-  console.log(`Server started on port ${config.PORT}`);
-})  })
-.catch(err => console.error("Error: " + err));
+    app.listen(config.PORT, () => {
+      console.log(`Server started on port ${config.PORT}`);
+    });
+  })
+  .catch((err) => console.error("Error: " + err));
