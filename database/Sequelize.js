@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
-
-module.exports = new Sequelize("todobock", "root", "", {
-  host: "localhost",
+const { DATA_BASE, ADMIN, PASSWORD_ADMIN, HOST } = require("../config");
+module.exports = new Sequelize(DATA_BASE, ADMIN, PASSWORD_ADMIN, {
+  host: HOST,
   dialect: "mysql",
   logging: false,
   define: {
