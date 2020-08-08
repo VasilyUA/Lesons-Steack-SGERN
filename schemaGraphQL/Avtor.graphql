@@ -1,0 +1,16 @@
+# Автор
+type Author {
+  id: ID!
+  firstName: String!
+  lastName: String!
+}
+input AuthorInput {
+  title: String!
+  description: String!
+}
+input UpdateAuthorInput {
+  id: ID!
+  title: String!
+  description: String!
+}
+# Автор

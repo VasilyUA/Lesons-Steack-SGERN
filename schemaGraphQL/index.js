@@ -3,6 +3,9 @@ const { readFileSync } = require("fs");
 const schemaBoock = readFileSync("./schemaGraphQL/boock.graphql", {
   encoding: "utf8",
 });
+// const schemaAuthor = readFileSync("./schemaGraphQL/Avtor.graphql", {
+//   encoding: "utf8",
+// });
 const schemaTodu = readFileSync("./schemaGraphQL/todu.graphql", {
   encoding: "utf8",
 });

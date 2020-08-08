@@ -6,6 +6,7 @@ const getAllBooks = async () => {
     return allBook;
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 const getBook = async (params) => {
@@ -15,12 +16,14 @@ const getBook = async (params) => {
     return oneBook;
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 
 const addBook = async (params) => {
   const { title, description } = params.book;
-  if (!title || !description) return "Всі поля мають бути заповниними";
+  if (!title || !description)
+    return new Error("Всі поля мають бути заповниними");
   try {
     const CreateBoock = await boock.create({
       title,
@@ -29,6 +32,7 @@ const addBook = async (params) => {
     return CreateBoock;
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 const updateBoock = async (params) => {
@@ -45,6 +49,7 @@ const updateBoock = async (params) => {
     return await boock.findByPk(params.book.id);
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 
@@ -54,6 +59,7 @@ const removeBoock = async (params) => {
     return "Книга удалена";
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 

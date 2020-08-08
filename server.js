@@ -30,6 +30,11 @@ if (NODE_ENV === "production") {
   });
 }
 
+//перезасдає занови тим самим стирає данні
+// db.sync({ force: true })
+//   .then(() => console.log("Таблиця перебудована"))
+//   .catch((err) => console.error(err));
+
 //Test Db conection
 db.authenticate()
   .then(() => {

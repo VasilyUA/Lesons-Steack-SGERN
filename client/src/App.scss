@@ -1,2 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+//Придавлюєм футер до низу контента
+main {
+  min-height: calc(100vh - 80px);
+}
 @import "~bootstrap/scss/bootstrap";
 @import "Components/ERORR/ERORR.scss";
+@import "Components/Layouts/Layouts.scss";
+@import "Components/Book/Book.scss";

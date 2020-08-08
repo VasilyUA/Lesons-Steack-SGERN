@@ -21,6 +21,5 @@ const boock = db.define("boock", {
     defaultValue: NOW,
   },
 });
-//перезасдає занови тим самим стирає данні
-// db.sync({ force: true }).catch((err) => console.error(err));
+
 module.exports = boock;
