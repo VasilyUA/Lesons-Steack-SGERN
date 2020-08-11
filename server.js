@@ -44,3 +44,21 @@ db.authenticate()
     });
   })
   .catch((err) => console.error("Error: " + err));
+
+// dob
+// const {propertyName} = objectToDestruct
+// nfn
+// const name = (params) => {
+// }
+// enf
+// export const functionName = (params) => {
+// }
+// mde
+// module.exports = {
+// };
+// req
+// // const packageName = require('packageName');
+// thenc
+// .then((result) => {
+// }).catch((err) => {
+// });

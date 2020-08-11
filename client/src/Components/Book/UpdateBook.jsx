@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
-import { ADD_BOOK } from "../../GraphQL/Mutation/Book";
-import { useHistory } from "react-router-dom";
-import { GET_LIST_BOOK } from "../../GraphQL/Query/Book";
+import { useMutation, useQuery } from "@apollo/react-hooks";
+import { UPDATE_BOOK } from "../../GraphQL/Mutation/Book";
+import { useHistory, useParams } from "react-router-dom";
+import { GET_LIST_BOOK, GET_BOOK } from "../../GraphQL/Query/Book";
 
 export default function AddBook() {
-  const [addBook] = useMutation(ADD_BOOK);
+  const { id } = useParams();
+  const history = useHistory();
+  const [updateBoock] = useMutation(UPDATE_BOOK);
+  const { data = {}, loading } = useQuery(GET_BOOK, {
+    variables: {
+      id: id,
+    },
+  });
+  const [Error, setError] = useState("");
+
+  const book = data ? data.getBook : null;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [Error, setError] = useState("");
-  const history = useHistory();
+  //   setTitle(data.title);
+  console.log(book);
   const Validity = () => {
     let Error = "";
     //name
@@ -22,19 +32,20 @@ export default function AddBook() {
     }
     return true;
   };
+
   const onServer = (e) => {
     e.preventDefault();
     const valid = Validity();
     if (valid) {
-      addBook({
-        variables: { title: title, description: description },
+      updateBoock({
+        variables: { id: id, title: title, description: description },
         refetchQueries: [{ query: GET_LIST_BOOK }],
       });
       history.push("/books");
       setError("");
     }
   };
-  return (
+  return book ? (
     <div className="container" style={{ marginTop: "20%" }}>
       <div className="row">
         <div className="col-md-12">
@@ -56,7 +67,7 @@ export default function AddBook() {
               <input
                 type="text"
                 style={Error !== "" ? { border: "2px solid red" } : null}
-                value={title}
+                value={book.title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="form-control"
                 name="title"
@@ -78,7 +89,7 @@ export default function AddBook() {
               )}
               <textarea
                 style={Error !== "" ? { border: "2px solid red" } : null}
-                value={description}
+                value={book.description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows="5"
                 className="form-control"
@@ -103,5 +114,7 @@ export default function AddBook() {
         </div>
       </div>
     </div>
+  ) : (
+    <div>{loading && <p>Loading...</p>}</div>
   );
 }

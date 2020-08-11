@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function ERORR() {
   return (
@@ -14,13 +15,10 @@ export default function ERORR() {
         Try refreshing the page or click the button below to go back to the
         Homepage.
         <div>
-          <a
-            className=" login-detail-panel-button btn"
-            href="http://www.vmware.com/"
-          >
+          <NavLink className=" login-detail-panel-button btn" to="/">
             <i className="fa fa-arrow-left"></i>
             Go back to Homepage
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>

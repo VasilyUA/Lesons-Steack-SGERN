@@ -4,7 +4,7 @@
 	"extensions": {
 		"endpoints": {
 			"Default Introspection Endpoint": {
-				"url": "http://localhost:6006/graphql",
+				"url": "http://localhost:5000/graphql",
 				"introspect": true
 			}
 		}

@@ -14,6 +14,7 @@ import Book from "./Components/Book/Book";
 import Todo from "./Components/Todo/Todo";
 import OneBook from "./Components/Book/OneBook";
 import AddBook from "./Components/Book/AddBook";
+import UpdateBook from "./Components/Book/UpdateBook";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/book/:id" render={() => <OneBook />} />
+          <Route exact path="/update/:id" render={() => <UpdateBook />} />
           <Route exact path="/addbook" render={() => <AddBook />} />
           <Route exact path="/books" render={() => <Book />} />
           <Route exact path="/todos" render={() => <Todo />} />

@@ -44,12 +44,12 @@ export default function Book() {
                             <i className="fa fa-clock-o"></i> 2 mins
                           </small>
                           <div className="tools">
-                            <button
+                            <NavLink
+                              to={`/update/${book.id}`}
                               className="btn btn-sm btn-outline-primary"
-                              type="button"
                             >
                               <i className="fa fa-edit"></i>
-                            </button>
+                            </NavLink>
                             <button
                               className="btn btn-sm btn-outline-danger"
                               type="button"

@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <NavLink className="navbar-brand" to="#">
+        <NavLink className="navbar-brand" to="/">
           Navbar
         </NavLink>
         <button
@@ -23,8 +23,13 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <NavLink className="nav-link" to="#">
+              <NavLink className="nav-link" to="/">
                 Home <span className="sr-only">(current)</span>
+              </NavLink>
+            </li>
+            <li className="nav-item active">
+              <NavLink className="nav-link" to="/books">
+                Books <span className="sr-only">(current)</span>
               </NavLink>
             </li>
           </ul>

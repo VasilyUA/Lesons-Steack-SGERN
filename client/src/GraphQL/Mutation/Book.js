@@ -15,3 +15,13 @@ export const ADD_BOOK = gql`
     }
   }
 `;
+
+export const UPDATE_BOOK = gql`
+  mutation updateBoock($id: ID!, $title: String!, $description: String!) {
+    addBook(book: { id: $id, title: $title, description: $description }) {
+      id
+      title
+      description
+    }
+  }
+`;
