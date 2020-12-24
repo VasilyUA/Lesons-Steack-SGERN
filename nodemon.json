@@ -2,9 +2,9 @@
   "ignore": ["node_modules", "client"],
   "env": {
     "NODE_ENV": "development",
-    "DATA_BASE": "todobock",
-    "ADMIN": "El-dinero",
-    "PASSWORD_ADMIN": "321456987",
+    "DATA_BASE": "book",
+    "ADMIN": "root",
+    "PASSWORD_ADMIN": "2820",
     "HOST": "localhost",
     "PORT": 5000
   },

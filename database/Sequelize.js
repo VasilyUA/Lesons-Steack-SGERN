@@ -5,7 +5,7 @@ module.exports = new Sequelize(DATA_BASE, ADMIN, PASSWORD_ADMIN, {
   dialect: "mysql",
   logging: false,
   define: {
-    timestamps: false,
+    timestamps: true,
   },
   pool: {
     max: 10,
