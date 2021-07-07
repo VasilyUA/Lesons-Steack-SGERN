@@ -1,13 +1,13 @@
 {
-  "ignore": ["node_modules", "client"],
-  "env": {
-    "NODE_ENV": "development",
-    "DATA_BASE": "book",
-    "ADMIN": "root",
-    "PASSWORD_ADMIN": "2820",
-    "HOST": "localhost",
-    "PORT": 5000
-  },
-  "ext": ".js,.json",
-  "watch": "./"
+	"ignore": ["node_modules", "client"],
+	"env": {
+		"NODE_ENV": "development",
+		"DATA_BASE": "book",
+		"ADMIN": "root",
+		"PASSWORD_ADMIN": "password",
+		"HOST": "localhost",
+		"PORT": 5000
+	},
+	"ext": ".js,.json",
+	"watch": "./"
 }

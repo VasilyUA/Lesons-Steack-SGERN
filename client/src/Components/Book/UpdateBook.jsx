@@ -31,7 +31,6 @@ export default function AddBook() {
 
 	const onServer = (e) => {
 		e.preventDefault();
-		console.log(state);
 		updateBoock({
 			variables: { id: id, ...state },
 			refetchQueries: [{ query: GET_LIST_BOOK }],
